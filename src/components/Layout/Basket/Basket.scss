@@ -1,0 +1,36 @@
+.basket {
+  position: absolute;
+  width: 118px;
+  height: 48px;
+  left: 1231px;
+  top: -17%;
+
+  align-items: center;
+  text-align: center;
+  background: white;
+  color: #b0b0b0;
+
+  /* or 24px */
+  border: 1px solid #b0b0b0;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  background: #ffffff;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
+  /* or 24px */
+}
+.basket:valid {
+  position: absolute;
+  width: 118px;
+  height: 48px;
+  left: 1241px;
+  top: 23px;
+}
+input[value] {
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 143%;
+}
