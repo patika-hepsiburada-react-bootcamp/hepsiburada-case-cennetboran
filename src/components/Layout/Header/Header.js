@@ -1,26 +1,30 @@
+import React from "react";
 import Search from "../SearchBox/Search";
 import Basket from "../Basket/Basket";
 import "./Header.scss";
 import VectorLogo from "../../../assets/logo/Vector.svg";
+import DropDown from "../DropDown/DropDown";
 
 export default function Header() {
   return (
     <>
-      <header className="header">
+      <div className="header">
         <div className="logo-wrap">
           <img alt="vector logo" className="vector-logo" src={VectorLogo} />
-
-          <Basket />
         </div>
-      </header>
-      <div className="productWrapper">
-        <div className="productSection">
-          <h3>
-            {" "}
-            <Search />
-          </h3>
-        </div>{" "}
-        {/* <Dropdown /> */}
+        <Search />
+        <Basket />
+      </div>
+      <div className="product-wrapper">
+        <div>
+          <h3 className="product-name">iphone İOS cep telefonu</h3>
+          <h4 className="product-search">
+            Aranan kelime:<span className="product-answer">iphone 11</span>
+          </h4>
+
+          <div className="product-section">{/* <Dropdown />*/} </div>
+        </div>
+        <DropDown />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Search.scss";
 
 export default function Search() {
@@ -6,7 +6,7 @@ export default function Search() {
 
   return (
     <>
-      <label className="search-icon">
+      <div>
         <input
           className="searchBox"
           type="text"
@@ -14,7 +14,7 @@ export default function Search() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-      </label>
+      </div>
     </>
   );
 }

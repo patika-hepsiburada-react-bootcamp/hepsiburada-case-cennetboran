@@ -1,0 +1,13 @@
+.filter-wrapper {
+  float: left;
+  width: 30%;
+  padding-left: 66px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-item:hover {
+  cursor: pointer;
+  color: #ff6000;
+}

@@ -2,15 +2,16 @@ import "./Basket.scss";
 import { useState } from "react";
 
 export default function Basket() {
-  const [basket, setBasket] = useState("");
+  const [basket, setBasket] = useState(false);
   return (
     <>
       <input
         className="basket"
         type="button"
         value="Sepetim"
-        onChange={(e) => setBasket(e.target.value)}
+        onClick={() => setBasket((prev) => !prev)}
       />
+      {basket && <div>Açıldııı</div>}
     </>
   );
 }

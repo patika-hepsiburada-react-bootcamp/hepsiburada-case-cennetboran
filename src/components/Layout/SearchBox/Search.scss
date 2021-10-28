@@ -1,15 +1,14 @@
 .searchBox {
-  position: absolute;
-  left: 445px;
-  right: 300px;
-  top: 24px;
-  bottom: 1915px;
   width: 625px;
   height: 38px;
   background: #eeeeee;
   border-radius: 100px;
   border: 0px;
+  background-image: url("../../../assets/icon/searchlogo.svg");
+  background-repeat: no-repeat;
+  background-position: 20px 11px;
 }
+
 .search-icon {
   background: url("../../../assets/icon/searchlogo.svg");
   width: 17.5px;
@@ -18,4 +17,13 @@
   top: calc(50% - 17.5px / 2 - 945.75px);
 
   /* Gray 1 */
+}
+input[class="searchBox"] {
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 143%;
+  padding-left: 56px;
 }
