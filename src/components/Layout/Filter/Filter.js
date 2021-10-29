@@ -4,7 +4,14 @@ import { MainContext } from "../../Context/Context";
 import "./Filter.scss";
 
 const Filter = (props) => {
-  const { products, filterOptions, setFilterOptions } = useContext(MainContext);
+  const {
+    products,
+    filterOptions,
+    setFilterOptions,
+    setProducts,
+    sortByPriceProducts,
+    sortByDescriptionProducts,
+  } = useContext(MainContext);
   const [colors, setColors] = useState([]);
   const [brands, setBrands] = useState([]);
 
@@ -89,10 +96,30 @@ const Filter = (props) => {
           })}
 
         <h4>Sıralama</h4>
-        <span className="filter-item">En Düşük Fiyat</span>
-        <span className="filter-item">En Yüksek Fiyat</span>
-        <span className="filter-item">En Yeniler (A{">"}Z)</span>
-        <span className="filter-item">En Yeniler (Z{"<"}A)</span>
+        <span
+          className="filter-item"
+          onClick={() => sortByPriceProducts("price", "asc")}
+        >
+          En Düşük Fiyat
+        </span>
+        <span
+          className="filter-item"
+          onClick={() => sortByPriceProducts("price", "desc")}
+        >
+          En Yüksek Fiyat
+        </span>
+        <span
+          className="filter-item"
+          onClick={() => sortByDescriptionProducts("desc", "asc")}
+        >
+          En Yeniler (A{">"}Z)
+        </span>
+        <span
+          className="filter-item"
+          onClick={() => sortByDescriptionProducts("desc", "desc")}
+        >
+          En Yeniler (Z{"<"}A)
+        </span>
 
         <h4>Marka</h4>
         {brands.length > 0 &&

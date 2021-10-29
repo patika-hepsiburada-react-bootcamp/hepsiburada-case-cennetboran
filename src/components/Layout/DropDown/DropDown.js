@@ -1,38 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { MainContext } from "../../Context/Context";
 import "./DropDown.scss";
 
 const DropDown = (props) => {
-  const [selected, setSelected] = useState(null);
+  const {
+    sortByPriceProducts,
+    sortByDescriptionProducts,
+    sortOption,
+    setSortOption,
+  } = useContext(MainContext);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleSelected = (event) => {
-    console.log(event.target.value);
-    setSelected(event.target.value);
+  const handleSelected = (value) => {
+    setSortOption(value);
+    switch (value) {
+      case "leastPrice":
+        sortByPriceProducts("price", "asc");
+        break;
+      case "highestPrice":
+        sortByPriceProducts("price", "desc");
+        break;
+      case "AZ":
+        sortByDescriptionProducts("desc", "asc");
+        break;
+      case "ZA":
+        sortByDescriptionProducts("desc", "desc");
+        break;
+      default:
+        break;
+    }
   };
   return (
     <>
-      <select className="dropDown" onChange={(e) => handleSelected(e)}>
-        <option value="" hidden disabled selected>
+      <div>
+        <button className="dropDown" onClick={() => setIsOpen((prev) => !prev)}>
           Sıralama
-        </option>
-        <option
-          className={selected === "leastPrice" ? "active" : ""}
-          value="leastPrice"
-        >
-          En Düşük Fiyat
-        </option>
-        <option
-          className={selected === "highestPrice" ? "active" : ""}
-          value="highestPrice"
-        >
-          En Yüksek Fiyat
-        </option>
-        <option className={selected === "AZ" ? "active" : ""} value="AZ">
-          En Yeniler (A{">"}Z)
-        </option>
-        <option className={selected === "ZA" ? "active" : ""} value="ZA">
-          En Yeniler (Z{"<"}A
-        </option>
-      </select>
+        </button>
+        {isOpen && (
+          <div className="options-wrap">
+            <span
+              onClick={() => handleSelected("leastPrice")}
+              className={sortOption === "leastPrice" ? "active" : ""}
+            >
+              En Düşük Fiyat
+            </span>
+            <span
+              onClick={() => handleSelected("highestPrice")}
+              className={sortOption === "highestPrice" ? "active" : ""}
+            >
+              En Yüksek Fiyat
+            </span>
+            <span
+              onClick={() => handleSelected("AZ")}
+              className={sortOption === "AZ" ? "active" : ""}
+            >
+              En Yeniler (A{">"}Z)
+            </span>
+            <span
+              onClick={() => handleSelected("ZA")}
+              className={sortOption === "ZA" ? "active" : ""}
+            >
+              En Yeniler (Z{"<"}A)
+            </span>
+          </div>
+        )}
+      </div>
     </>
   );
 };

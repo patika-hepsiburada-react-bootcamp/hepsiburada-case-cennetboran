@@ -10,6 +10,7 @@ const Context = (props) => {
   const [basketItems, setBasketItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [filterOptions, setFilterOptions] = useState([]);
+  const [sortOption, setSortOption] = useState("normal");
 
   useEffect(() => {
     setProducts(mainProductsList);
@@ -47,6 +48,54 @@ const Context = (props) => {
     setBasketItems(tempCart);
   };
 
+  const sortByPriceProducts = (by, type) => {
+    let sortedArray = [];
+    if (type === "asc") {
+      setSortOption("leastPrice");
+      sortedArray = products.sort(function (a, b) {
+        return parseFloat(a[by]) - parseFloat(b[by]);
+      });
+    } else {
+      setSortOption("highestPrice");
+      sortedArray = products.sort(function (a, b) {
+        return parseFloat(b[by]) - parseFloat(a[by]);
+      });
+    }
+    setProducts([...sortedArray]);
+  };
+
+  const sortByDescriptionProducts = (by, type) => {
+    let sortedArray = [];
+    if (type === "asc") {
+      setSortOption("AZ");
+      sortedArray = products.sort((a, b) => {
+        var descA = a[by].toLowerCase(),
+          descB = b[by].toLowerCase();
+        if (descA < descB) {
+          return -1;
+        }
+        if (descA > descB) {
+          return 1;
+        }
+        return 0;
+      });
+    } else {
+      setSortOption("ZA");
+      sortedArray = products.sort((a, b) => {
+        var descA = a[by].toLowerCase(),
+          descB = b[by].toLowerCase();
+        if (descA < descB) {
+          return 1;
+        }
+        if (descA > descB) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    setProducts([...sortedArray]);
+  };
+
   const properties = {
     products,
     basketItems,
@@ -55,6 +104,11 @@ const Context = (props) => {
     removeFromCart,
     filterOptions,
     setFilterOptions,
+    sortOption,
+    setSortOption,
+    setProducts,
+    sortByDescriptionProducts,
+    sortByPriceProducts,
   };
   return (
     <MainContext.Provider value={properties}>
