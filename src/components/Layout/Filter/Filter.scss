@@ -11,3 +11,15 @@
   cursor: pointer;
   color: #ff6000;
 }
+
+.remove-filter-button {
+  background-color: red;
+  border: none;
+  border-radius: 50%;
+  width: 15px;
+  color: white;
+  height: 15px;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+}
