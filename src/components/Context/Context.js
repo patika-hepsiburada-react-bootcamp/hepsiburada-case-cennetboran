@@ -11,11 +11,23 @@ const Context = (props) => {
   const [products, setProducts] = useState([]);
   const [filterOptions, setFilterOptions] = useState([]);
   const [sortOption, setSortOption] = useState("normal");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setProducts(mainProductsList);
     setBasketItems(JSON.parse(localStorage.getItem("basket")) || []);
   }, []);
+
+  useEffect(() => {
+    if (search !== "") {
+      let searchedProducts = mainProductsList.filter((x) =>
+        x.desc.toLowerCase().includes(search.toLowerCase())
+      );
+      setProducts(searchedProducts);
+    } else {
+      setProducts(mainProductsList);
+    }
+  }, [search]);
 
   useEffect(() => {
     console.log(filterOptions);
@@ -98,6 +110,7 @@ const Context = (props) => {
 
   const properties = {
     products,
+    setProducts,
     basketItems,
     setBasketItems,
     addToCart,
@@ -106,9 +119,10 @@ const Context = (props) => {
     setFilterOptions,
     sortOption,
     setSortOption,
-    setProducts,
     sortByDescriptionProducts,
     sortByPriceProducts,
+    search,
+    setSearch,
   };
   return (
     <MainContext.Provider value={properties}>

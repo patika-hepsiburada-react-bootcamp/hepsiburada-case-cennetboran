@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { MainContext } from "../../Context/Context";
 import "./Search.scss";
 
 export default function Search() {
-  const [search, setSearch] = useState("");
+  const { search, setSearch } = useContext(MainContext);
 
   return (
     <>
