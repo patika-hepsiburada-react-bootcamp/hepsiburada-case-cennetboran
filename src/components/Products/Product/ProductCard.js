@@ -1,34 +1,42 @@
 import React, { useState } from "react";
+// import Phone from "../../../assets/product-img/image 1.png";
+import "./ProductCard.scss";
 
-const ProductCard = (props) => {
+const ProductCard = ({ product }) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   return (
     <>
-      <div className="col-lg-4 col-md-6 col-12  mb-3">
-        <div className="container ">
-          <img
-            className="img-fluid w-100 "
-            src={props.image}
-            alt="Sample"
-            className="img-fluid "
+      <div className="card">
+        <div className="card-image">
+          <img className="img-fluid w-100 " src={product.image} alt="Cardimg" />
+        </div>
+        <div className="container-body text-center">
+          {/* <h5>{props.name}</h5> */}
+          {/* <p>{props.desc.replace(/(<([^>]+)>)/gi, "")}</p> */}
+          <p className="desc">{product.desc}</p>
+          <h4 className="product-names">
+            Marka:<span className="product-answername">{product.brand}</span>
+          </h4>
+          <h4 className="product-names">
+            Renk:<span className="product-answername">{product.color}</span>
+          </h4>
+
+          {/* <h3 className="text-danger mr-1">{props.price}</h3> */}
+          <h3 className="price text-danger mr-1">{product.price} TL</h3>
+          <h3 className="price-sale mr-1">
+            <span className="first">{product.actualPrice} TL</span>
+            <span className="sale">{" " + product.sale}</span>
+          </h3>
+
+          <input
+            type="button"
+            className="basket-button"
+            disabled={isDisabled}
+            value="sepete ekle"
+            // onClick={() => props.addToCart(props.id, 1)}
           />
-
-          <div className="container-body text-center">
-            <h5>{props.name}</h5>
-            <p>{props.desc.replace(/(<([^>]+)>)/gi, "")}</p>
-
-            <h3 className="text-danger mr-1">{props.price}</h3>
-
-            <button
-              type="button"
-              className="btn btn-primary btn-sm mr-1 mb-2"
-              disabled={isDisabled}
-              onClick={() => props.addToCart(props.id, 1)}
-            >
-              <i className="fas fa-shopping-cart pr-2"></i>Add to cart
-            </button>
-          </div>
+          {/* <i className="fas fa-shopping-cart pr-2"></i>Add to cart */}
         </div>
       </div>
     </>

@@ -11,7 +11,7 @@ export default function Basket() {
         value="Sepetim"
         onClick={() => setBasket((prev) => !prev)}
       />
-      {basket && <div>Açıldııı</div>}
+      {basket && <div className="basket-opened">Açıldııı</div>}
     </>
   );
 }

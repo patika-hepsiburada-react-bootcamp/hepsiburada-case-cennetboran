@@ -1,14 +1,10 @@
 import "./App.css";
-import Container from "./components/Layout/Container/Container";
-import Filter from "./components/Layout/Filter/Filter";
-import Header from "./components/Layout/Header/Header";
+import Context from "./components/Context/Context";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Filter />
-      <Container />
+      <Context />
     </div>
   );
 }
