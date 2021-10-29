@@ -7,11 +7,32 @@ import Header from "../Layout/Header/Header";
 export const MainContext = createContext();
 
 const Context = (props) => {
+  const [basketItems, setBasketItems] = useState([]);
+
   useEffect(() => {
-    console.log(products);
+    setBasketItems(JSON.parse(localStorage.getItem("basket")) || []);
   }, []);
+
+  const addToCart = (item) => {
+    let tempCart = [...basketItems];
+    tempCart.push(item);
+    localStorage.setItem("basket", JSON.stringify(tempCart));
+    setBasketItems(tempCart);
+  };
+
+  const removeFromCart = (index) => {
+    let tempCart = [...basketItems];
+    tempCart.splice(index, 1);
+    localStorage.setItem("basket", JSON.stringify(tempCart));
+    setBasketItems(tempCart);
+  };
+
   const properties = {
-    products: products,
+    products,
+    basketItems,
+    setBasketItems,
+    addToCart,
+    removeFromCart,
   };
   return (
     <MainContext.Provider value={properties}>

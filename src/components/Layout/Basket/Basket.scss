@@ -31,7 +31,7 @@
   z-index: 5;
   overflow-y: scroll;
   position: absolute;
-  transform: translate(495px, 201px);
+  transform: translate(-242px, -8px);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   cursor: default;
@@ -47,4 +47,129 @@
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+}
+
+.basket-opened ul {
+  list-style-type: none;
+}
+
+.delete-button {
+  cursor: pointer;
+  color: #f90000;
+  background-color: #fff;
+  border: 1px solid #f90000;
+  height: 19px;
+  width: 48px;
+  line-height: 18px;
+  font-size: 10px;
+  border-radius: 4px;
+  padding: initial;
+}
+
+.delete-wrapper {
+  align-self: flex-start;
+  margin: 10px;
+}
+
+.product-desc {
+  margin-left: 10px;
+  margin-top: -15px;
+  word-break: break-all;
+}
+.product-desc p {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #484848;
+}
+
+.cart-product-wrapper {
+  margin-top: 21px;
+  display: flex;
+}
+
+.product-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-product-image {
+  width: 50px;
+}
+
+.cart-badge {
+  position: relative;
+  transform: translate(100px, -25px);
+  width: 18px;
+  height: 18px;
+  background: #ff6000;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-visible {
+  display: none;
+}
+
+#delete-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border: 1px solid rgba(228, 228, 228, 0.6);
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 12px rgba(50, 50, 71, 0.07);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 14;
+  background-color: rgb(0 0 0 / 60%);
+}
+
+#delete-modal > div {
+  background-color: white;
+  max-width: 500px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#delete-modal h1 {
+  color: rgba(72, 72, 72, 1);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#delete-modal p {
+  color: rgba(72, 72, 72, 1);
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#delete-modal .modal-buttons button {
+  float: right;
+  display: inline-block;
+  margin-right: 15px;
+  border: none;
+  width: 70px;
+  height: 26px;
+}
+
+#delete-modal .modal-buttons .modal-yes-button {
+  background-color: #90d659;
+  border-radius: 4px;
+  color: white;
+}
+#delete-modal .modal-buttons .modal-no-button {
+  background-color: #d65959;
+  border-radius: 4px;
+  color: white;
 }

@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useEffect } from "react/cjs/react.development";
+import { MainContext } from "../../Context/Context";
 // import Phone from "../../../assets/product-img/image 1.png";
 import "./ProductCard.scss";
 
 const ProductCard = ({ product }) => {
+  const { addToCart, basketItems } = useContext(MainContext);
   const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    let controlFlag =
+      basketItems.filter((x) => x.productId === product.productId).length > 0;
+    setIsDisabled(controlFlag);
+  }, [basketItems]);
 
   return (
     <>
@@ -28,16 +37,15 @@ const ProductCard = ({ product }) => {
             <span className="first">{product.actualPrice} TL</span>
             <span className="sale">{" " + product.sale}</span>
           </h3>
-
-          <input
-            type="button"
-            className="basket-button"
-            disabled={isDisabled}
-            value="sepete ekle"
-            // onClick={() => props.addToCart(props.id, 1)}
-          />
           {/* <i className="fas fa-shopping-cart pr-2"></i>Add to cart */}
         </div>
+        <button
+          className="basket-button"
+          disabled={isDisabled}
+          onClick={() => addToCart(product)}
+        >
+          {isDisabled ? "Bu ürünü sepete ekleyemezsiniz." : "Sepete Ekle"}
+        </button>
       </div>
     </>
   );
