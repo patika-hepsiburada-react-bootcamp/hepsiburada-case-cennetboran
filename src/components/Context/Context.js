@@ -12,6 +12,8 @@ const Context = (props) => {
   const [filterOptions, setFilterOptions] = useState([]);
   const [sortOption, setSortOption] = useState("normal");
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsCount, setProductsCount] = useState();
 
   useEffect(() => {
     setProducts(mainProductsList);
@@ -45,6 +47,10 @@ const Context = (props) => {
       setProducts([...mainProductsList]);
     }
   }, [filterOptions]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [products]);
 
   const addToCart = (item) => {
     let tempCart = [...basketItems];
@@ -123,6 +129,10 @@ const Context = (props) => {
     sortByPriceProducts,
     search,
     setSearch,
+    currentPage,
+    setCurrentPage,
+    productsCount,
+    setProductsCount,
   };
   return (
     <MainContext.Provider value={properties}>

@@ -1,0 +1,30 @@
+nav {
+  position: absolute;
+  left: 300px;
+  padding-bottom: 300px;
+}
+.pagination {
+  display: flex;
+  list-style: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+ul.pagination > li > button {
+  width: 33px;
+  height: 33px;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+  border-radius: 9px;
+  margin-left: 13.2px;
+}
+ul.pagination > button {
+  width: 33px;
+  height: 33px;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+  border-radius: 9px;
+  margin-left: 13.2px;
+}
