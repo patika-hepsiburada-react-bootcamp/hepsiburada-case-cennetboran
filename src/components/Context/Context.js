@@ -21,7 +21,7 @@ const Context = (props) => {
   }, []);
 
   useEffect(() => {
-    if (search !== "") {
+    if (search !== "" && search.length > 2) {
       let searchedProducts = mainProductsList.filter((x) =>
         x.desc.toLowerCase().includes(search.toLowerCase())
       );
