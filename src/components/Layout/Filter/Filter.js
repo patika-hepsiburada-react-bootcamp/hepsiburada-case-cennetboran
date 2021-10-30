@@ -95,7 +95,7 @@ const Filter = (props) => {
             }
           })}
 
-        <h4>Sıralama</h4>
+        <span className="sorting">Sıralama</span>
         <span
           className="filter-item"
           onClick={() => sortByPriceProducts("price", "asc")}

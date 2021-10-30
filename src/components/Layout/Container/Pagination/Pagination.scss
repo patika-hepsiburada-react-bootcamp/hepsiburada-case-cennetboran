@@ -16,11 +16,13 @@ ul.pagination > li > button {
   background: #ffffff;
   border: 1px solid #eeeeee;
   box-sizing: border-box;
+  cursor: pointer;
   border-radius: 9px;
   margin-left: 13.2px;
 }
 ul.pagination > button {
   width: 33px;
+  cursor: pointer;
   height: 33px;
   background: #ffffff;
   border: 1px solid #eeeeee;
