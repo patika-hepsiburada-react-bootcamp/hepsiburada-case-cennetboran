@@ -19,6 +19,8 @@ export default function Basket() {
     setIsModalOpen(true);
   };
 
+  // to open mouse events with basket model
+
   return (
     <>
       <div
@@ -78,6 +80,8 @@ export default function Basket() {
             </ul>
           </div>
         }
+        {/* method created to delete data from cart */}
+
         {isModalOpen && (
           <div id="delete-modal">
             <div>

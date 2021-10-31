@@ -1,6 +1,4 @@
-[![build status](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hepsiburada-case-cennetboran.svg?style=svg)](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hepsiburada-case-cennetboran.svg?style=svg)
-
-# Hepsiburada Case - Cennet Boran
+# Hepsiburada Case Cennet Boran
 
 - Page design where products are listed, searched and filtered
 
@@ -85,8 +83,10 @@ npm run lint
 To run tests, run the following command
 
 ```bash
-  npm run test
+  npm  test
 ```
+
+![BuildStatus](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hepsiburada-case-cennetboran.svg?style=svg) (private repo olduğu için badge görünmeyebilir.)
 
 ## Badges
 

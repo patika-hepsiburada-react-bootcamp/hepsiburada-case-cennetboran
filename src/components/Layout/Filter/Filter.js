@@ -8,20 +8,23 @@ const Filter = (props) => {
     products,
     filterOptions,
     setFilterOptions,
-    setProducts,
     sortByPriceProducts,
     sortByDescriptionProducts,
   } = useContext(MainContext);
   const [colors, setColors] = useState([]);
   const [brands, setBrands] = useState([]);
 
+  // fires when products change and sets filters
   useEffect(() => {
     setFilterByColor();
     setFilterByBrand();
+    // eslint-disable-next-line
   }, [products]);
 
+  // Filter products by color
   const setFilterByColor = () => {
     let filteredByColor = [];
+    // eslint-disable-next-line
     products.map((item) => {
       if (filteredByColor.filter((x) => x.color === item.color).length <= 0) {
         filteredByColor.push({
@@ -37,8 +40,10 @@ const Filter = (props) => {
     setColors(filteredByColor);
   };
 
+  // filters products by Brands
   const setFilterByBrand = () => {
     let filteredByBrand = [];
+    // eslint-disable-next-line
     products.map((item) => {
       if (filteredByBrand.filter((x) => x.brand === item.brand).length <= 0) {
         filteredByBrand.push({
@@ -53,10 +58,13 @@ const Filter = (props) => {
     setBrands(filteredByBrand);
   };
 
+  // sets filter data
   const setFilters = (item) => {
     let options = [...filterOptions, item];
     setFilterOptions(options);
   };
+
+  // Removes filters
   const removeFromFilters = (item) => {
     if (filterOptions.length > 0) {
       let newFilter = [...filterOptions];

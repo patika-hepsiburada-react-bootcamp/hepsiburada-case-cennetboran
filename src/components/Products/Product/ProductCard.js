@@ -7,11 +7,13 @@ import "./ProductCard.scss";
 const ProductCard = ({ product }) => {
   const { addToCart, basketItems } = useContext(MainContext);
   const [isDisabled, setIsDisabled] = useState(false);
+
+  // fires when basketItems change and sets "Sepete Ekle" buttons disablity
   useEffect(() => {
     let controlFlag =
       basketItems.filter((x) => x.productId === product.productId).length > 0;
     setIsDisabled(controlFlag);
-  }, [basketItems]);
+  }, [basketItems, product.productId]);
 
   return (
     <div className="card">

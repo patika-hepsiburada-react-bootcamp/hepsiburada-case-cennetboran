@@ -15,11 +15,13 @@ const Context = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsCount, setProductsCount] = useState();
 
+  // Handling basket items to be in local storage
   useEffect(() => {
     setProducts(mainProductsList);
     setBasketItems(JSON.parse(localStorage.getItem("basket")) || []);
   }, []);
 
+  // fires when searching and sets products list by search
   useEffect(() => {
     if (search !== "" && search.length > 2) {
       let searchedProducts = mainProductsList.filter((x) =>
@@ -31,6 +33,7 @@ const Context = (props) => {
     }
   }, [search]);
 
+  // fires when filtering products
   useEffect(() => {
     if (filterOptions.length > 0) {
       let filteredProducts = [...mainProductsList];
@@ -45,10 +48,12 @@ const Context = (props) => {
     }
   }, [filterOptions]);
 
+  // if products changes sets pagination to first page
   useEffect(() => {
     setCurrentPage(1);
   }, [products]);
 
+  // Add to cart and write to localStorage
   const addToCart = (item) => {
     let tempCart = [...basketItems];
     tempCart.push(item);
@@ -56,6 +61,7 @@ const Context = (props) => {
     setBasketItems(tempCart);
   };
 
+  // Remove product from cart and locakStorage
   const removeFromCart = (index) => {
     let tempCart = [...basketItems];
     tempCart.splice(index, 1);
@@ -63,6 +69,7 @@ const Context = (props) => {
     setBasketItems(tempCart);
   };
 
+  // fires when sorting products by price
   const sortByPriceProducts = (by, type) => {
     let sortedArray = [];
     if (type === "asc") {
@@ -79,6 +86,7 @@ const Context = (props) => {
     setProducts([...sortedArray]);
   };
 
+  // fires when sorting products by Description(Title)
   const sortByDescriptionProducts = (by, type) => {
     let sortedArray = [];
     if (type === "asc") {
@@ -111,6 +119,7 @@ const Context = (props) => {
     setProducts([...sortedArray]);
   };
 
+  // Context properties
   const properties = {
     products,
     setProducts,

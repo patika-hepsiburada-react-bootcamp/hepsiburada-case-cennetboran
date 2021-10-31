@@ -5,7 +5,7 @@ import "./Container.scss";
 
 const Container = (props) => {
   return (
-    // TODO: Product listesi contexten buraya gelicek ve productList e gönderilecek.
+    // Product list contexten came here and sent to productList
     <div data-testid="container">
       <ProductsList />
       <Pagination />

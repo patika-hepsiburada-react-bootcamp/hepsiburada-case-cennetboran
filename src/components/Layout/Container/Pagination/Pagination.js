@@ -14,10 +14,13 @@ export default function Pagination() {
   } = useContext(MainContext);
   const [totalPages, setTotalPages] = useState([1]);
 
+  // fires when products change and changes productsCount
   useEffect(() => {
     setProductsCount(products.length);
+    // eslint-disable-next-line
   }, [products]);
 
+  // fires when productsCount changes and handles total page count
   useEffect(() => {
     let tempArray = [];
     for (let i = 0; i < Math.ceil(productsCount / 12); i++) {

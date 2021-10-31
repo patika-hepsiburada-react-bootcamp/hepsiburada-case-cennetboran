@@ -3,7 +3,7 @@ import { MainContext } from "../../Context/Context";
 import "./Search.scss";
 
 export default function Search() {
-  const { search, setSearch } = useContext(MainContext);
+  const { setSearch } = useContext(MainContext);
 
   return (
     <input

@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { MainContext } from "../Context/Context";
-import Pagination from "../Layout/Container/Pagination/Pagination";
 import ProductCard from "./Product/ProductCard";
 import "./ProductsList.scss";
 
 const ProductsList = () => {
   const { products, currentPage } = useContext(MainContext);
 
+  // sets product count per page and which are showed
   const indexOfLastProduct = currentPage * 12;
   const indexOfFirstProduct = indexOfLastProduct - 12;
   return (

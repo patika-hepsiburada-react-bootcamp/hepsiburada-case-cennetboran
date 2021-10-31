@@ -7,7 +7,7 @@ import DropDown from "../DropDown/DropDown";
 import { MainContext } from "./../../Context/Context";
 
 export default function Header() {
-  const { search, setSearch } = useContext(MainContext);
+  const { search } = useContext(MainContext);
 
   return (
     <>
