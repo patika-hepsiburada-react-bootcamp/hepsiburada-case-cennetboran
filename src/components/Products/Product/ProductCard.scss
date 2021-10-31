@@ -7,9 +7,10 @@
   background: #e5e5e5;
 }
 .card {
-  margin: 20px;
+  // margin: 20px;
+  padding: 1rem;
   height: 500px;
-  flex: 1 0 21%;
+  flex: 0 0 250px;
 }
 
 div.card:hover {
@@ -22,7 +23,7 @@ div.card:hover {
   .price-sale {
     display: none;
   }
-  .basket-button {
+  .basket-button:enabled {
     top: 55px;
     position: relative;
     display: block;
@@ -31,6 +32,7 @@ div.card:hover {
     cursor: pointer;
     align-items: center;
     text-align: center;
+    transition: all 0.5s;
     color: #ff6000;
     margin-left: 11px;
     /* or 24px */
@@ -41,16 +43,55 @@ div.card:hover {
     background: #ffebde;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
     /* or 24px */
+    span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    span:after {
+      content: "\00bb";
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    &:hover span {
+      padding-right: 25px;
+    }
+    &:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
   }
+
   .basket-button:disabled {
     color: #868482;
     background: #e7e7e7;
+    top: 55px;
+    position: relative;
+    display: block;
+    width: 218px;
+    height: 34px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s;
+    margin-left: 11px;
+    /* or 24px */
+    border: 0px solid white;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
   }
   -webkit-box-shadow: 0px 0px 12px 5px #e1ecf175;
   box-shadow: 0px 0px 12px 5px #eaeff175;
 }
 .card-image {
-  width: max-content;
+  // width: max-content;
 }
 .container-body {
   width: 200px;

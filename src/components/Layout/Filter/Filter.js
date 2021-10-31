@@ -55,7 +55,6 @@ const Filter = (props) => {
 
   const setFilters = (item) => {
     let options = [...filterOptions, item];
-    console.log(item);
     setFilterOptions(options);
   };
   const removeFromFilters = (item) => {
@@ -78,6 +77,7 @@ const Filter = (props) => {
             ) {
               return (
                 <span
+                  onClick={() => removeFromFilters(item)}
                   className="filter-item"
                   key={"rem" + item.colorEn}
                   id={"rem" + item.colorEn}
@@ -85,7 +85,6 @@ const Filter = (props) => {
                   <button
                     data-testid={"remove-color-" + item.colorEn}
                     className="remove-filter-button"
-                    onClick={() => removeFromFilters(item)}
                   >
                     x
                   </button>
@@ -107,7 +106,7 @@ const Filter = (props) => {
             }
           })}
 
-        <span className="sorting">Sıralama</span>
+        <h4 className="sorting">Sıralama</h4>
         <span
           className="filter-item"
           key="price-asc"
@@ -144,13 +143,12 @@ const Filter = (props) => {
               filterOptions.filter((x) => x.brand === item.brand).length > 0
             ) {
               return (
-                <span className="filter-item" key={"rem-brand" + item.brand}>
-                  <button
-                    className="remove-filter-button"
-                    onClick={() => removeFromFilters(item)}
-                  >
-                    x
-                  </button>
+                <span
+                  onClick={() => removeFromFilters(item)}
+                  className="filter-item"
+                  key={"rem-brand" + item.brand}
+                >
+                  <button className="remove-filter-button">x</button>
                   {item.brand}&nbsp;({item.count})
                 </span>
               );

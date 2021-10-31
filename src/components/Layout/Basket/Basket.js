@@ -31,8 +31,8 @@ export default function Basket() {
           data-testid="basketMouseEnter"
           onMouseEnter={() => setIsBasketVisible(true)}
         >
+          <span className="cart-badge">{items ? items.length : 0}</span>
           <span className="cart-text">Sepetim</span>
-          <span className="cart-badge">{items.length}</span>
         </button>
         {
           <div
@@ -42,7 +42,8 @@ export default function Basket() {
             }
           >
             <ul>
-              {items.length > 0 &&
+              {items &&
+                items.length > 0 &&
                 items.map((item, index) => {
                   return (
                     <li key={item.productId}>
@@ -101,6 +102,7 @@ export default function Basket() {
                   onClick={() => {
                     removeFromCart(itemIndex);
                     setIsModalOpen(false);
+                    setIsBasketVisible(false);
                   }}
                 >
                   Evet

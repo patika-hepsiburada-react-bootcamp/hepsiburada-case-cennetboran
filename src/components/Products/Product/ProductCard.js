@@ -47,7 +47,9 @@ const ProductCard = ({ product }) => {
         data-testid={"add-to-cart-" + product.productId}
         onClick={() => addToCart(product)}
       >
-        {isDisabled ? "Bu ürünü sepete ekleyemezsiniz." : "Sepete Ekle"}
+        <span>
+          {isDisabled ? "Bu ürünü sepete ekleyemezsiniz." : "Sepete Ekle"}
+        </span>
       </button>
     </div>
   );

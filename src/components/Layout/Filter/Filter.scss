@@ -5,6 +5,11 @@
   text-align: left;
   display: flex;
   flex-direction: column;
+
+  h4 {
+    margin-bottom: 0.6rem;
+    margin-top: 0.6rem;
+  }
 }
 
 .filter-item:hover {
@@ -22,8 +27,5 @@
   height: 15px;
   text-align: center;
   padding: 0;
-  cursor: pointer;
-}
-.sorting {
   cursor: pointer;
 }
