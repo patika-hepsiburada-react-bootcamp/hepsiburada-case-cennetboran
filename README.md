@@ -1,3 +1,5 @@
+[![build status](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hepsiburada-case-cennetboran.svg?style=svg)](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hepsiburada-case-cennetboran.svg?style=svg)
+
 # Hepsiburada Case - Cennet Boran
 
 - Page design where products are listed, searched and filtered
