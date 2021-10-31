@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { MainContext } from "../../Context/Context";
 import "./Search.scss";
 
@@ -6,17 +6,13 @@ export default function Search() {
   const { search, setSearch } = useContext(MainContext);
 
   return (
-    <>
-      <div>
-        <input
-          className="searchBox"
-          type="text"
-          data-testid="search"
-          placeholder="24 milyon'dan fazla ürün içerisinden ara"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-    </>
+    <input
+      className="searchBox"
+      type="text"
+      id="searchBox"
+      data-testid="searchBox"
+      placeholder="24 milyon'dan fazla ürün içerisinden ara"
+      onChange={(e) => setSearch(e.target.value)}
+    />
   );
 }

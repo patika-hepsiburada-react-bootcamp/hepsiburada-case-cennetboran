@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useEffect } from "react/cjs/react.development";
 import { MainContext } from "../../Context/Context";
-import { createPortal } from "react-dom";
 import "./Basket.scss";
 
 export default function Basket() {
@@ -22,10 +21,14 @@ export default function Basket() {
 
   return (
     <>
-      <div onMouseLeave={() => setIsBasketVisible(false)}>
+      <div
+        data-testid="basketMouseLeave"
+        onMouseLeave={() => setIsBasketVisible(false)}
+      >
         <button
           className="basket"
           type="button"
+          data-testid="basketMouseEnter"
           onMouseEnter={() => setIsBasketVisible(true)}
         >
           <span className="cart-text">Sepetim</span>
@@ -33,6 +36,7 @@ export default function Basket() {
         </button>
         {
           <div
+            data-testid="basketContainer"
             className={
               isBasketVisible ? "basket-opened" : "not-visible basket-opened"
             }
@@ -46,7 +50,7 @@ export default function Basket() {
                         <div>
                           <img
                             className="cart-product-image"
-                            src={item.image}
+                            src={"/" + item.image}
                             alt="product-thumbnail"
                           />
                         </div>
@@ -56,6 +60,7 @@ export default function Basket() {
                           </div>
                           <div className="delete-wrapper">
                             <button
+                              data-testid={"item-" + item.productId}
                               className="delete-button"
                               onClick={() => {
                                 openModal(index);

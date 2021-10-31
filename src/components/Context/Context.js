@@ -32,18 +32,15 @@ const Context = (props) => {
   }, [search]);
 
   useEffect(() => {
-    console.log(filterOptions);
     if (filterOptions.length > 0) {
-      console.log("2");
       let filteredProducts = [...mainProductsList];
-      filterOptions.map((option) => {
+      filterOptions.forEach((option) => {
         filteredProducts = filteredProducts.filter(
           (x) => x[option.type] === option[option.type]
         );
       });
       setProducts([...filteredProducts]);
     } else {
-      console.log("3");
       setProducts([...mainProductsList]);
     }
   }, [filterOptions]);

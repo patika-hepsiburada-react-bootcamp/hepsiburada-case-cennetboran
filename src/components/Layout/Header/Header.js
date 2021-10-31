@@ -8,7 +8,7 @@ import DropDown from "../DropDown/DropDown";
 export default function Header() {
   return (
     <>
-      <div className="header">
+      <div className="header" data-testid="header">
         <div className="logo-wrap">
           <img alt="vector logo" className="vector-logo" src={VectorLogo} />
         </div>

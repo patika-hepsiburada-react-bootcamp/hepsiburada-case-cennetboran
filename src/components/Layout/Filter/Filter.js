@@ -27,6 +27,7 @@ const Filter = (props) => {
         filteredByColor.push({
           type: "color",
           color: item.color,
+          colorEn: item.colorEn,
           count: 1,
         });
       } else {
@@ -54,6 +55,7 @@ const Filter = (props) => {
 
   const setFilters = (item) => {
     let options = [...filterOptions, item];
+    console.log(item);
     setFilterOptions(options);
   };
   const removeFromFilters = (item) => {
@@ -61,7 +63,6 @@ const Filter = (props) => {
       let newFilter = [...filterOptions];
       let ind = newFilter.findIndex((x) => x[item.type] === item[item.type]);
       newFilter.splice(ind, 1);
-      console.log(newFilter);
       setFilterOptions([...newFilter]);
     }
   };
@@ -69,27 +70,38 @@ const Filter = (props) => {
   return (
     <>
       <div className="filter-wrapper">
-        <h4>Renk</h4>
+        <h4 id="color">Renk</h4>
         {colors.length > 0 &&
           colors.map((item) => {
             if (
               filterOptions.filter((x) => x.color === item.color).length > 0
             ) {
               return (
-                <span className="filter-item">
+                <span
+                  className="filter-item"
+                  key={"rem" + item.colorEn}
+                  id={"rem" + item.colorEn}
+                >
                   <button
+                    data-testid={"remove-color-" + item.colorEn}
                     className="remove-filter-button"
                     onClick={() => removeFromFilters(item)}
                   >
                     x
                   </button>
-                  {item.color}({item.count})
+                  {item.color}&nbsp;({item.count})
                 </span>
               );
             } else {
               return (
-                <span className="filter-item" onClick={() => setFilters(item)}>
-                  {item.color}({item.count})
+                <span
+                  data-testid={"color-" + item.colorEn}
+                  className="filter-item"
+                  id={"color-" + item.colorEn}
+                  key={item.color}
+                  onClick={() => setFilters(item)}
+                >
+                  {item.color}&nbsp;({item.count})
                 </span>
               );
             }
@@ -98,50 +110,58 @@ const Filter = (props) => {
         <span className="sorting">Sıralama</span>
         <span
           className="filter-item"
+          key="price-asc"
           onClick={() => sortByPriceProducts("price", "asc")}
         >
           En Düşük Fiyat
         </span>
         <span
           className="filter-item"
+          key="price-desc"
           onClick={() => sortByPriceProducts("price", "desc")}
         >
           En Yüksek Fiyat
         </span>
         <span
           className="filter-item"
+          key="newest-asc"
           onClick={() => sortByDescriptionProducts("desc", "asc")}
         >
           En Yeniler (A{">"}Z)
         </span>
         <span
           className="filter-item"
+          key="newest-desc"
           onClick={() => sortByDescriptionProducts("desc", "desc")}
         >
           En Yeniler (Z{"<"}A)
         </span>
 
-        <h4>Marka</h4>
+        <h4 id="brand">Marka</h4>
         {brands.length > 0 &&
           brands.map((item) => {
             if (
               filterOptions.filter((x) => x.brand === item.brand).length > 0
             ) {
               return (
-                <span className="filter-item">
+                <span className="filter-item" key={"rem-brand" + item.brand}>
                   <button
                     className="remove-filter-button"
                     onClick={() => removeFromFilters(item)}
                   >
                     x
                   </button>
-                  {item.brand}({item.count})
+                  {item.brand}&nbsp;({item.count})
                 </span>
               );
             } else {
               return (
-                <span className="filter-item" onClick={() => setFilters(item)}>
-                  {item.brand}({item.count})
+                <span
+                  key={"brand" + item.brand}
+                  className="filter-item"
+                  onClick={() => setFilters(item)}
+                >
+                  {item.brand}&nbsp;({item.count})
                 </span>
               );
             }

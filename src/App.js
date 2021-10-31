@@ -3,7 +3,7 @@ import Context from "./components/Context/Context";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="app">
       <Context />
     </div>
   );

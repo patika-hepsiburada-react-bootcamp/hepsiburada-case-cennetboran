@@ -14,7 +14,7 @@ ul.pagination > li > button {
   width: 33px;
   height: 33px;
   background: #ffffff;
-  border: 1px solid #eeeeee;
+  border: 1px solid #f3e7e7;
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 9px;
@@ -29,4 +29,8 @@ ul.pagination > button {
   box-sizing: border-box;
   border-radius: 9px;
   margin-left: 13.2px;
+}
+
+.active_page {
+  background: #ff6100 !important;
 }

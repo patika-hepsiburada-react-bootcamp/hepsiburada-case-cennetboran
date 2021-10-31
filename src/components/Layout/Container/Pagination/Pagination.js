@@ -28,9 +28,9 @@ export default function Pagination() {
 
   return (
     <nav>
-      {console.log(totalPages)}
       <ul className="pagination">
         <button
+          data-testid="previous-page"
           onClick={() => {
             if (currentPage > 1) {
               setCurrentPage(currentPage - 1);
@@ -44,6 +44,8 @@ export default function Pagination() {
         {totalPages.map((number) => (
           <li key={number}>
             <button
+              data-testid={"page-" + number}
+              className={currentPage === number ? "active_page" : ""}
               onClick={() => {
                 setCurrentPage(number);
               }}
@@ -53,6 +55,7 @@ export default function Pagination() {
           </li>
         ))}
         <button
+          data-testid="next-page"
           onClick={() => {
             if (currentPage < totalPages.length) {
               setCurrentPage(currentPage + 1);

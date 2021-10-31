@@ -12,7 +12,7 @@ const ProductsList = () => {
   return (
     <>
       {/* TODO: Productlar buraya gelicek ve map ile dönülüp her biri için ProductCard basılacak */}
-      <div className="products-main-container">
+      <div className="products-main-container" data-testid="product-list">
         {products
           .slice(indexOfFirstProduct, indexOfLastProduct)
           .map((product, index) => {
