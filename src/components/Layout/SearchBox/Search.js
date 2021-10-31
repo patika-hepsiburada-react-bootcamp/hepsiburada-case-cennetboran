@@ -11,6 +11,7 @@ export default function Search() {
         <input
           className="searchBox"
           type="text"
+          data-testid="search"
           placeholder="24 milyon'dan fazla ürün içerisinden ara"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
