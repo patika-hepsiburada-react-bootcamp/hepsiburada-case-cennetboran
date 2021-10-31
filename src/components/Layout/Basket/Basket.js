@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useState, useContext, useEffect } from "react";
 import { MainContext } from "../../Context/Context";
 import "./Basket.scss";
 
@@ -18,7 +17,6 @@ export default function Basket() {
     setItemIndex(index);
     setIsModalOpen(true);
   };
-
   // to open mouse events with basket model
 
   return (
@@ -80,8 +78,8 @@ export default function Basket() {
             </ul>
           </div>
         }
-        {/* method created to delete data from cart */}
 
+        {/* method created to delete data from cart */}
         {isModalOpen && (
           <div id="delete-modal">
             <div>
