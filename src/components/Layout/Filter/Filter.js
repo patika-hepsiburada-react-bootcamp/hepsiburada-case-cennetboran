@@ -90,12 +90,6 @@ const Filter = (props) => {
                   key={"rem" + item.colorEn}
                   id={"rem" + item.colorEn}
                 >
-                  <button
-                    data-testid={"remove-color-" + item.colorEn}
-                    className="remove-filter-button"
-                  >
-                    x
-                  </button>
                   {item.color}&nbsp;({item.count})
                 </span>
               );
@@ -156,7 +150,6 @@ const Filter = (props) => {
                   className="filter-item"
                   key={"rem-brand" + item.brand}
                 >
-                  <button className="remove-filter-button">x</button>
                   {item.brand}&nbsp;({item.count})
                 </span>
               );
