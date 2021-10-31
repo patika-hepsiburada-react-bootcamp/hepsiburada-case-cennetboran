@@ -2,9 +2,15 @@
 
 - Page design where products are listed, searched and filtered
 
-# ⭐ Features
+## 🍄 Preview
 
-#### Live previews -> ...
+#### Live previews -> [Demo](https://cennetboran-hepsiburada-case.netlify.app/)
+
+<br />
+
+<img width="800"  src="https://imgyukle.com/f/2021/10/31/kHaQO1.gif">
+
+# ⭐ Features
 
 ### when the project runs;
 
@@ -33,10 +39,6 @@
 - Deployed on Netlify. - [Netlify](https://www.netlify.com/)
 - Docker ready. - [Docker](https://docs.docker.com/engine/reference/builder/)
 - Test React Jest used. - [Jest](https://jestjs.io/docs/tutorial-react)
-
-## 🍄 Preview
-
-Preview Gif --
 
 ## 📌Installation
 
@@ -69,13 +71,7 @@ npm run lint
 - To deploy this project run
 
 ```bash
-  docker build -t [project-url] .
-```
-
-- To run application on--(localhost)
-
-```
-    docker run -itd -p 80:80 --name <your-conteiner-name> [project-url]
+  npm run dev - dockerfile
 ```
 
 ## 📎 Running Tests
